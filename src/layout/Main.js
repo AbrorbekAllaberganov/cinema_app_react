@@ -10,14 +10,14 @@ class Main extends Component {
     }
 
     componentDidMount() {
-        fetch('http://www.omdbapi.com/?apikey=9d63b571&s=Panda')
+        fetch('https://www.omdbapi.com/?apikey=9d63b571&s=Panda')
             .then(response => response.json())
             .then(data => this.setState({movies: data.Search, loading: false}))
     }
 
     searchMovie = (str, type = 'all') => {
         this.setState({loading: true})
-        fetch(`http://www.omdbapi.com/?apikey=9d63b571&s=${str}${type !== 'all' ? `&type=${type}` : ``}`)
+        fetch(`https://www.omdbapi.com/?apikey=9d63b571&s=${str}${type !== 'all' ? `&type=${type}` : ``}`)
             .then(response => response.json())
             .then(data => this.setState({movies: data.Search, loading: false}))
     }
